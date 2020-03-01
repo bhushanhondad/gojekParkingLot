@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Unit test for simple ParkingLot App.
+ * Unit test for ParkingLot App.
  */
 public class ParkingLotAppTest
     extends TestCase
@@ -34,7 +34,7 @@ public class ParkingLotAppTest
             writer.close ();
     }
 
-    public void testAllUseCase()
+    public void testHappyFlow()
     {
         ParkingLotImpl parkingLot = new ParkingLotImpl ();
         try {
@@ -78,7 +78,7 @@ public class ParkingLotAppTest
     }
 
 
-    public void testnegativeTestCasesForSingleCommand()
+    public void testnegativeCasesForSingleCommand()
     {
         try {
             SingleCommandValidator.SINGLE_COMMAND_VALIDATOR.checkIfCommandIsValid ("statuses");
@@ -90,7 +90,8 @@ public class ParkingLotAppTest
         }
     }
 
-    public void testnegativeTestCasesForTwoCommandCreateParkingLot()
+
+    public void testnegativeCasesForTwoWordCommandCreate_parking_lot()
     {
         try {
             TwoCommandValidator.TWO_COMMAND_VALIDATOR.checkIfCommandIsValid ("create_parking_lot o");
@@ -102,7 +103,7 @@ public class ParkingLotAppTest
         }
     }
 
-    public void testnegativeTestCasesForTwoCommandLeave()
+    public void testnegativeCasesForTwoWordCommandLeave()
     {
         try {
             TwoCommandValidator.TWO_COMMAND_VALIDATOR.checkIfCommandIsValid ("leave o");
@@ -114,7 +115,7 @@ public class ParkingLotAppTest
         }
     }
 
-    public void testnegativeTestCasesForTwoSlot_number_for_registration_number()
+    public void testnegativeCasesForTwoWordCommandSlot_number_for_registration_number()
     {
         try {
             TwoCommandValidator.TWO_COMMAND_VALIDATOR.checkIfCommandIsValid ("slot_number_for_registration_number o");
@@ -126,7 +127,7 @@ public class ParkingLotAppTest
         }
     }
 
-    public void testnegativeTestCasesForTwoslot_numbers_for_cars_with_colour()
+    public void testnegativeCasesForTwoWordCommandSlot_numbers_for_cars_with_colour()
     {
         try {
             TwoCommandValidator.TWO_COMMAND_VALIDATOR.checkIfCommandIsValid ("slot_numbers_for_cars_with_colour o");
@@ -137,7 +138,7 @@ public class ParkingLotAppTest
             assertEquals ("Please check this command: slot_numbers_for_cars_with_colour o",e.getMessage ());
         }
     }
-    public void testnegativeTestCasesForTwoLength3()
+    public void testnegativeCasesForThreeWordCommandSlot_numbers_for_cars_with_colour()
     {
         try {
             TwoCommandValidator.TWO_COMMAND_VALIDATOR.checkIfCommandIsValid ("slot_numbers_for_cars_with_colour o o");
@@ -149,7 +150,7 @@ public class ParkingLotAppTest
         }
     }
 
-    public void testnegativeTestCasesForThreeLength()
+    public void testnegativeCasesForThreeWordCommandPark()
     {
         try {
             ThreeCommandValidator.THREE_COMMAND_VALIDATOR.checkIfCommandIsValid ("park KA-22CA2001 WHITE");
